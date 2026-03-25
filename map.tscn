@@ -10,7 +10,7 @@
 ignore_rotation = false
 limit_enabled = false
 rotation_smoothing_enabled = true
-rotation_smoothing_speed = 1.0
+rotation_smoothing_speed = 1.5
 
 [node name="Trails" type="Node2D" parent="." unique_id=221631566]
 unique_name_in_owner = true
