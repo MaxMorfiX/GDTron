@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d0lyeeup30oc2"]
+
+[ext_resource type="PackedScene" uid="uid://bdnqqby4omdsf" path="res://cycle/cycle.tscn" id="1_c7s6e"]
+
+[node name="map" type="Node2D" unique_id=860582164]
+
+[node name="Cycle2D" parent="." unique_id=1717947741 instance=ExtResource("1_c7s6e")]
+
+[node name="Camera2D" type="Camera2D" parent="Cycle2D" unique_id=1235172410]
+ignore_rotation = false
+limit_enabled = false
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 1.0
+
+[node name="Trails" type="Node2D" parent="." unique_id=221631566]
+unique_name_in_owner = true
