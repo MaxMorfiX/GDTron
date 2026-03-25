@@ -43,13 +43,13 @@ func process_turns(delta: float) -> void:
 	
 	if buffered_turns.size() == 0: return
 	
-	if buffered_turns[0]: rotate_cycle(PI/2)
-	else: rotate_cycle(-PI/2)
+	if buffered_turns[0]: rotate_cycle(90)
+	else: rotate_cycle(-90)
 	
 	buffered_turns.remove_at(0)
 func buffer_turn(turn: bool) -> void:
 	if buffered_turns.size() >= max_turn_buffer_length: return
 	buffered_turns.push_back(turn)
 func rotate_cycle(ang: float) -> void:
-		rotate(ang)
+		rotation_degrees += ang
 		timeout = 0
