@@ -56,5 +56,5 @@ func rotate_cycle(ang: float) -> void:
 		rotation_degrees += ang
 		timeout = 0
 
-func wall_approached(shape: CollisionShape2D) -> void:
+func wall_approached(wall: CollisionShape2D) -> void:
 	pass
