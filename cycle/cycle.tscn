@@ -5,8 +5,8 @@
 [sub_resource type="QuadMesh" id="QuadMesh_wfw5w"]
 size = Vector2(10, 20)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_r7rnt"]
-b = Vector2(0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7rnt"]
+size = Vector2(0, 0)
 
 [node name="Cycle" type="CharacterBody2D" unique_id=1717947741]
 script = ExtResource("1_qo4ur")
@@ -16,4 +16,4 @@ self_modulate = Color(1, 0.060000002, 0.5769997, 1)
 mesh = SubResource("QuadMesh_wfw5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=908589557]
-shape = SubResource("SegmentShape2D_r7rnt")
+shape = SubResource("RectangleShape2D_r7rnt")

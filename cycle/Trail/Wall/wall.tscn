@@ -2,5 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cvytaieakguau" path="res://cycle/Trail/Wall/wall.gd" id="1_kp6vt"]
 
-[node name="Wall" type="CollisionShape2D" unique_id=1742424978]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kp6vt"]
+
+[node name="Area2D" type="Area2D" unique_id=725979281]
 script = ExtResource("1_kp6vt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1742424978]
+shape = SubResource("RectangleShape2D_kp6vt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
