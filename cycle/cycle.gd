@@ -3,8 +3,11 @@ class_name Cycle
 
 @export var color: Color
 @export var trail_length: float = 3000
+@export var base_speed: float = 30000
+@export var max_speed: float = 100000
 
-var speed: float = 600
+var speed: float = 30000
+
 var min_timeout: float = 0.02
 var max_turn_buffer_length: int = 4
 var max_rubber: float = 10
@@ -17,7 +20,7 @@ var rubber: float = 0
 var trail_scene: PackedScene = preload('res://cycle/Trail/trail.tscn');
 var trail: Trail = trail_scene.instantiate()
 
-var nearby_walls: Array[Wall] = []
+var walls_nearby: Array[Wall] = []
 
 func _ready() -> void:
 	self_modulate = color
@@ -28,11 +31,28 @@ func _physics_process(delta: float) -> void:
 	
 	process_turns(delta)
 	
-	velocity = Vector2(0, -1).rotated(rotation)*speed
-	move_and_slide()
+	handle_movement(delta)
 	
 	trail.update(position, rotation)
 	#print("adding ", position, " to points")
+
+func handle_movement(delta: float) -> void:
+	
+	speed += (base_speed-speed)*0.1
+	
+	for wall in walls_nearby:
+		if wall == trail.last_wall: continue
+		
+		var dist: float = wall.get_perpendicular_dist(position)
+		
+		if wall.is_parallel_to(rotation):
+			speed *= 0.1*exp(dist) + 1
+	
+	velocity = Vector2(0, -1).rotated(rotation)*speed*delta
+	
+	print(speed)
+	
+	move_and_slide()
 
 func process_turns(delta: float) -> void:
 	
@@ -59,8 +79,8 @@ func rotate_cycle(ang: float) -> void:
 		timeout = 0
 
 func on_wall_approached(wall: Wall) -> void:
-	nearby_walls.push_back(wall)
+	walls_nearby.push_back(wall)
 
 func on_wall_left(wall: Wall) -> void:
-	var i := nearby_walls.find(wall)
-	nearby_walls.remove_at(i)
+	var i := walls_nearby.find(wall)
+	walls_nearby.remove_at(i)

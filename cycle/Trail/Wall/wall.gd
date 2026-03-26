@@ -4,7 +4,7 @@ class_name Wall
 var collision_shape: CollisionShape2D
 var shape: RectangleShape2D
 
-static var WALL_WIDTH: float = 5
+static var WALL_WIDTH: float = 15
 
 var a: Vector2
 var b: Vector2
@@ -50,13 +50,16 @@ func extend(extend_vector: Vector2) -> void:
 	shape.size.y += extend_vector.length()
 	position += extend_vector/2
 
-
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Cycle: return
 	body.on_wall_approached(self)
-
-
 func _on_body_exited(body: Node2D) -> void:
 	if body is not Cycle: return
 	
 	body.on_wall_left(self)
+
+func is_parallel_to(ang: float) -> bool:
+	return true
+
+func get_perpendicular_dist(pos: Vector2) -> float:
+	return 0
