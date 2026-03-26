@@ -1,7 +1,8 @@
 extends CharacterBody2D
-class_name cycle_2d
+class_name Cycle
 
 @export var color: Color
+@export var trail_length: float = 3000
 
 var speed: float = 600
 var min_timeout: float = 0.02
@@ -18,6 +19,7 @@ var trail: Trail = trail_scene.instantiate()
 
 func _ready() -> void:
 	self_modulate = color
+	trail.max_length = trail_length
 	%Trails.add_child(trail)
 
 func _physics_process(delta: float) -> void:
@@ -53,3 +55,6 @@ func buffer_turn(turn: bool) -> void:
 func rotate_cycle(ang: float) -> void:
 		rotation_degrees += ang
 		timeout = 0
+
+func wall_approached(shape: CollisionShape2D) -> void:
+	pass

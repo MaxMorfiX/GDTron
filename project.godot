@@ -15,6 +15,10 @@ run/main_scene="uid://d0lyeeup30oc2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [input]
 
 brake={
