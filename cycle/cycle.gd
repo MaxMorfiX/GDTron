@@ -14,7 +14,7 @@ var buffered_turns: Array[bool] = []
 
 var rubber: float = 0
 
-var trail_scene: PackedScene = preload('res://cycle/trail.tscn');
+var trail_scene: PackedScene = preload('res://cycle/Trail/trail.tscn');
 var trail: Trail = trail_scene.instantiate()
 
 func _ready() -> void:

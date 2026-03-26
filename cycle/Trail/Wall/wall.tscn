@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fu85nogpejhc"]
+
+[ext_resource type="Script" uid="uid://cvytaieakguau" path="res://cycle/Trail/Wall/wall.gd" id="1_kp6vt"]
+
+[node name="Wall" type="CollisionShape2D" unique_id=1742424978]
+script = ExtResource("1_kp6vt")

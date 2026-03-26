@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du0a22p4w18ea"]
 
-[ext_resource type="Script" uid="uid://h4dym6i06irx" path="res://cycle/trail.gd" id="1_coebx"]
+[ext_resource type="Script" uid="uid://h4dym6i06irx" path="res://cycle/Trail/trail.gd" id="1_coebx"]
 
 [node name="Trail" type="Line2D" unique_id=1164632653]
 script = ExtResource("1_coebx")
