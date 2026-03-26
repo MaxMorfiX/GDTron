@@ -98,3 +98,7 @@ func handle_length(add_value: float = 0) -> void:
 	walls[0].shorten(shorten_amount)
 	
 	#print("moving toward; after: ", points[0])
+
+#func _draw() -> void:
+	#for p in points:
+		#draw_circle(p, 2, Color("#aacc44"))

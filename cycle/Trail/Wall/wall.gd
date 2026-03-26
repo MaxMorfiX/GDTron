@@ -4,7 +4,7 @@ class_name Wall
 var collision_shape: CollisionShape2D
 var shape: RectangleShape2D
 
-static var WALL_WIDTH: float = 0.9
+static var WALL_WIDTH: float = 5
 
 var a: Vector2
 var b: Vector2
@@ -32,7 +32,7 @@ func init_collider(rot: float) -> void:
 	collision_shape = CollisionShape2D.new()
 	shape = RectangleShape2D.new()
 	
-	shape.size = Vector2(diffl, WALL_WIDTH)
+	shape.size = Vector2(WALL_WIDTH, diffl)
 	collision_shape.position = a + diff/2
 	collision_shape.rotation = rot
 	

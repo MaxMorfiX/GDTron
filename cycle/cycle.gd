@@ -33,8 +33,6 @@ func _physics_process(delta: float) -> void:
 	
 	trail.update(position, rotation)
 	#print("adding ", position, " to points")
-	
-	print(nearby_walls.size())
 
 func process_turns(delta: float) -> void:
 	
